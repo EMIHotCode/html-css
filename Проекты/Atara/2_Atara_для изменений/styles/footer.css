@@ -1,0 +1,12 @@
+footer{
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 5%;
+    border-top: 1px solid rgba(167,167,167,0.2);
+}
+footer a,
+footer p{
+    color:#5e5e5e;
+}

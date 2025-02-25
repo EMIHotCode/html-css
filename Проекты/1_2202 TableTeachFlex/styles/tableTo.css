@@ -1,0 +1,43 @@
+.table {
+   display: table;
+   text-align: center;
+   margin-left: 5%;
+   width: 90%;
+   font-size: 12px;                 /* размер шрифта  */
+   border: 1px solid #dddddd;
+   border-collapse: collapse;       /*collapse Ч соседние границы отображаютс€ как одна граница*/
+}
+.row{
+   display: flex;
+}
+.col_title{
+   width: 35%;
+   text-align: left;
+
+}
+.col{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 5%;
+}
+.paragraf{
+   display: flex;
+   font-weight: bold;
+   margin: 0 auto;  /* выравнивает div внутри div по середине */
+}
+.blue{
+   background: #729FCF;
+}
+.grey{
+   background: #DDDDDD;
+}
+.white{
+   background: #ffffff;
+}
+.green{
+   background: #cbe649;
+}
+.red{
+   background: #ffbfbf;
+}

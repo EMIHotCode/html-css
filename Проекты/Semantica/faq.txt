@@ -1,0 +1,5 @@
+https://semantica.in/blog/chto-takoe-adminka-sajta.html
+
+на боковой панели стрелки вправо отдельный шрифт Font Awesome — это веб-шрифт,
+содержащий все иконки из фреймворка Twitter Bootstrap
+https://astronautweb.co/snippet/font-awesome/   все символы шрифта с указанием 
