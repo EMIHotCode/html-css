@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ru_RU">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Шаблон сайта</title>
+   <link rel="stylesheet" href="css/main.css">
+   <link rel="stylesheet" href="css_bootstrapPage/bootstrap.css">
+
+</head>
+<body>
+
+<header>
+   <h1>My Website</h1>
+   <p>A website created by me.</p>
+</header>
+
+
+
+
+<nav>
+   <a href="index.html">На главную</a>
+   <a href="https://html5css.ru/howto/tryhow_make_a_website.htm#">Link</a>
+   <a href="https://html5css.ru/howto/tryhow_make_a_website.htm#">Link</a>
+   <a href="https://html5css.ru/howto/tryhow_make_a_website.htm#" class="right">Link</a>
+</nav>
+
+
+<aside>
+   <h2>About Me</h2>
+   <h5>Photo of me:</h5>
+   <div class="fakeimg" style="height:200px;">
+      <img src="img/vini.jpg" alt="Фото Вини-Пуха" width="200">
+   </div><br>
+   <div>
+      <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+   </div>
+   <h3>More Text</h3>
+   <p>Lorem ipsum dolor sit ame.</p>
+   <div class="fakeimg" style="height:60px;">Image</div><br>
+   <div class="fakeimg" style="height:60px;">Image</div><br>
+   <div class="fakeimg" style="height:60px;">Image</div>
+</aside>
+
+<main>
+   <div class="row justify-content-center">
+      <div class="col-6">
+         <h1 class="h2">Менеджер аккаунтов</h1>
+      </div>
+   </div>
+   <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+         <div class="container-fluid">
+           <a class="navbar-brand" href="#">Navbar</a>
+           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+             <span class="navbar-toggler-icon"></span>
+           </button>
+           <div class="collapse navbar-collapse" id="navbarSupportedContent">
+             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+               <li class="nav-item">
+                 <a class="nav-link active" aria-current="page" href="#">Home</a>
+               </li>
+               <li class="nav-item">
+                 <a class="nav-link" href="#">Link</a>
+               </li>
+               <li class="nav-item dropdown">
+                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                   Dropdown
+                 </a>
+                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                   <li><a class="dropdown-item" href="#">Action</a></li>
+                   <li><a class="dropdown-item" href="#">Another action</a></li>
+                   <li><hr class="dropdown-divider"></li>
+                   <li><a class="dropdown-item" href="#">Something else here</a></li>
+                 </ul>
+               </li>
+               <li class="nav-item">
+                 <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+               </li>
+             </ul>
+             <form class="d-flex">
+               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+               <button class="btn btn-outline-success" type="submit">Search</button>
+             </form>
+           </div>
+         </div>
+       </nav>
+   </div>
+<div class="row">
+   <section id="accounts_collection" class="col-4">
+         <div class="list-group">
+            <button type="button" class="list-group-item list-group-item-action me-5">guest</button>
+            <button type="button" class="list-group-item list-group-item-action me-5">admin</button>
+         </div>
+   </section>
+
+   <section class="col-8">
+      <form id="form_selected_account" method="post" action="index.html">
+         <div class="container">
+            <div class="row">
+                  <div class="col">
+                     <fieldset>
+                     <legend>Учётные данные</legend>
+                        <div class="mb-3">
+                              <label for="login" class="form-label">Логин</label>
+                              <input type="text" id="login" class="form-control">
+                        </div>
+
+                        <div class="mb-3">
+                              <label for="password" class="form-label">Пароль</label>
+                              <input type="password" id="password" class="form-control">
+                        </div>
+                     </fieldset>
+                  </div>
+
+                  <div class="col">
+                     <fieldset>
+                     <legend>Личные данные</legend>
+
+                        <div class="mb-3">
+                              <label for="last_name" class="form-label">Фамилия</label>
+                              <input type="text" id="last_name" class="form-control">
+                        </div>
+
+                        <div class="mb-3">
+                              <label for="first_name" class="form-label">Имя</label>
+                              <input type="text" id="first_name" class="form-control">
+                        </div>
+                  </fieldset>
+                  </div>
+            </div>
+            <div class="row">
+                  <div class="col-4 offset-8">
+                     <button type="submit" class="btn btn-success">Сохранить</button>
+                     <button type="reset" class="btn btn-danger">Очистить</button>
+                  </div>
+            </div>
+         </div>
+      </form>
+   </section>
+</div>
+<section class="container">
+   <p>Bootstrap вложить row внутрь row </p>
+   <div class="row">
+   <div class="col-4 bg-warning">Some text</div>
+   <div class="col-4 bg-success">
+      <div class="row ">
+         <div class="col-md-12">
+            <div class="row bg-danger">
+               <p class="icon_down">111</p>
+            </div>
+         </div>
+      </div>
+      <div class="row ">
+         <div class="col-md-12">
+            <div class="row bg-secondary">
+               <p>
+                  <img class="icon" src="/img/arrow-down-square-fill.svg" alt="svg стрелка" width="20" height="20">
+                  222
+               </p>
+            </div>
+         </div>
+      </div>
+      <div class="row ">
+         <div class="col-md-12">
+            <div class="row bg-danger">333</div>
+         </div>
+      </div>
+   </div>
+   <div class="col-4 bg-info">Some text</div>
+   </div>
+</section>
+
+<section class="container">
+   <div class="row icon">
+      
+   </div>
+   <!-- <img src="/img/arrow-down-square-fill.svg" alt="svg стрелка" width="40"> -->
+</section>
+
+
+
+</main>
+<!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-square-fill" viewBox="0 0 16 16">
+   <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm6.5 4.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5a.5.5 0 0 1 1 0"/>
+ </svg> -->
+<footer>
+   <h2>Footer</h2>
+</footer>
+<script src="js/bootstrap.bundle.js"></script>
+
+</body>
+</html>

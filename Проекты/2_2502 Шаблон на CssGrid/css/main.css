@@ -1,0 +1,188 @@
+/*@import './response.css';*/
+
+body {
+   display: grid;
+   grid-template-columns: 250px 1fr;
+   grid-template-rows: minmax(50px, 150px) 45px 1fr 70px;
+   /*align-items: stretch;*/
+   font-family: Arial, serif;
+   margin: 0;
+}
+header{
+   grid-area: header;
+   grid-row: 1;
+   grid-column: 1 / 3;
+   text-align: center;
+   background: #1abc9c;
+   padding: 20px;
+}
+nav{
+   grid-area: nav;
+   grid-row: 2;
+   grid-column: 1 / 3;
+   background-color: #333;
+   overflow: hidden;
+}
+nav a {
+   float: left;
+   display: block;
+   color: white;
+   text-align: center;
+   padding: 14px 20px;
+   text-decoration: none;
+}
+/* Right-aligned link */
+nav a.right {
+   float: right;
+}
+
+/* Change color on hover */
+nav a:hover {
+   background-color: #ddd;
+   color: black;
+}
+
+
+aside{
+   grid-area: aside;
+   display: inline-block;
+   grid-row: 3;
+   grid-column: 1 / 2;
+   background-color: #f1f1f1;
+   padding: 20px;
+}
+
+main{
+   grid-area: main;
+   grid-row: 3;
+   grid-column: 2 / 3;
+   background-color: #ffffff;
+   padding: 20px;
+}
+
+footer{
+   grid-area: footer;
+   grid-row: 4;
+   grid-column: 1 / 3;
+   padding: 20px;
+   text-align: center;
+   background: #ddd;
+}
+
+.icon_down {
+
+   background-image: url("../img/arrow-down-square-fill.svg");
+   width: 20px;
+   height: 20px; 
+   fill: #1abc9c;
+   background-repeat: no-repeat;
+   background-size: contain;}
+.icon_down :hover {
+   fill: red;
+}
+/*
+* {
+   box-sizing: border-box;
+}
+
+!* Style the body *!
+body {
+   font-family: Arial;
+   margin: 0;
+}
+
+!* Header/logo Title *!
+.header {
+   padding: 80px;
+   text-align: center;
+   background: #1abc9c;
+   color: white;
+}
+
+!* Increase the font size of the heading *!
+.header h1 {
+   font-size: 40px;
+}
+
+!* Style the top navigation bar *!
+.navbar {
+   overflow: hidden;
+   background-color: #333;
+}
+
+!* Style the navigation bar links *!
+.navbar a {
+   float: left;
+   display: block;
+   color: white;
+   text-align: center;
+   padding: 14px 20px;
+   text-decoration: none;
+}
+
+!* Right-aligned link *!
+.navbar a.right {
+   float: right;
+}
+
+!* Change color on hover *!
+.navbar a:hover {
+   background-color: #ddd;
+   color: black;
+}
+
+!* Column container *!
+.row {  
+   display: -ms-flexbox; !* IE10 *!
+   display: flex;
+   -ms-flex-wrap: wrap; !* IE10 *!
+   flex-wrap: wrap;
+}
+
+!* Create two unequal columns that sits next to each other *!
+!* Sidebar/left column *!
+.side {
+   -ms-flex: 30%; !* IE10 *!
+   flex: 30%;
+   background-color: #f1f1f1;
+   padding: 20px;
+}
+
+!* Main column *!
+.main {   
+   -ms-flex: 70%; !* IE10 *!
+   flex: 70%;
+   background-color: white;
+   padding: 20px;
+}
+
+!* Fake image, just for this example *!
+.fakeimg {
+   background-color: #aaa;
+   width: 100%;
+   padding: 20px;
+}
+
+!* Footer *!
+.footer {
+   padding: 20px;
+   text-align: center;
+   background: #ddd;
+}
+
+!* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other *!
+@media screen and (max-width: 700px) {
+   .row {   
+      flex-direction: column;
+   }
+}
+
+!* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other *!
+@media screen and (max-width: 400px) {
+   .navbar a {
+      float: none;
+      width: 100%;
+   }
+}
+
+*/
