@@ -1,0 +1,21 @@
+Лицензия SIL OFL 1.1    -- полностью бесплатные
+Встроить в fonts.css /* Merriweather Regular [latin]. Licensed under the OFL 1.1. See: /assets/fonts/merriweather-v19-ofl.txt */
+Также информацию о лицензии можно включить в виде самостоятельных
+текстовых файлов, читаемых заголовков или в поля метаданных для 
+машинного чтения внутри текстовых или бинарных файлов, если эти поля легко 
+доступны для просмотра пользователем.
+
+	https://skillbox.ru/media/design/15_shriftov_ot_skillbox/ отсюда взяты бесплатные шрифты
+	IBM Plex
+	Roboto     текст лицензии    https://github.com/googlefonts/roboto-3-classic/blob/main/OFL.txt
+	Montserrat  - хороший шрифт без засечек
+	oswald
+	lato
+	futura
+	frutiger
+	bebas neue
+	Noto Sans
+	ubuntu
+	manrope
+	circe
+
