@@ -7,7 +7,7 @@ let form = document.getElementById('form')
    fetch('https://jsonplaceholder.typicode.com/posts/1')
    .then(response => response.json())
    .then(json => {
-      for (const jsonKey in json) {  // можно обойтись без цикла так как там только одна запись
+      for (const jsonKey in json) {  // правильно обойтись без цикла так как там только одна запись. Перебор осуществляется другим образом
          output.innerHTML = `<p><span>user ID:</span> ${json.userId}</p> 
                               <h1>${json.title}</h1
                               <p>${json.body}</p>`// вставляем в нашу страницу данные из get запроса создавая новые теги

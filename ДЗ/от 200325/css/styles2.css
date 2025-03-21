@@ -1,0 +1,93 @@
+body{
+   margin: 0;  /* убираем отступы по умолчанию чтобы не использовать reset.css */
+   padding: 0;
+   font: 14px/21px Arial, sans-serif;
+   background: #F5F5F5;;
+}
+
+.container{
+   display: flex;
+   flex-direction: column;
+   width: 960px;
+   margin: 0 auto ;    /* автоподгонка боков страницы*/
+   padding: 0;
+}
+
+.message_container{
+   display: flex;
+   flex-wrap: nowrap;
+   padding: 0 0 0 0;
+   margin: 0 0 0 0;
+}
+
+.message_container-user{
+   flex-direction: row;
+}
+.message_container-opponent{
+   flex-direction: row-reverse;
+}
+
+
+
+.user_init{
+   display: flex;
+   flex-direction: column;
+   align-items: end;
+   width: 170px;
+}
+
+.opponent_init{
+   display: flex;
+   flex-direction: column;
+   align-items: start;
+   width: 170px;
+}
+
+h2{
+   padding: 22px 0 15px 0;
+   margin: 0 0 0 0;
+}
+
+
+.user_init > p,
+.opponent_init > p
+{
+   padding: 0px 0 10px 0;
+   margin: 0 0 0 0;
+   color: rgb(22, 171, 121);
+}
+
+
+
+.wrapper_user {
+   content: "user foto";
+   width: 100px;
+   height: 100px;
+   background-image: url("/icons_hw_module_8_9/avatar_2.png");
+   background-repeat: no-repeat;
+   background-position: top;
+   background-size: contain; /* позволяет масштабировать изображение */
+}
+.wrapper_opponent {
+   content: "user foto";
+   width: 100px;
+   height: 100px;
+   background-image: url("/icons_hw_module_8_9/avatar_1.png");
+   background-repeat: no-repeat;
+   background-position: top;
+   background-size: contain; /* позволяет масштабировать изображение */
+}
+.message_user{
+   width: 418px;
+   text-align: center;
+   background-color: #FFB6C1;
+   border-radius: 20px 20px 20px 0px;
+   padding: 0 0 0 0;
+}
+.message_opponent{
+   width: 418px;
+   text-align: center;
+   background-color: #ADD8E6;
+   border-radius: 20px 20px 0px 20px;
+   padding: 0 0 0 0;
+}

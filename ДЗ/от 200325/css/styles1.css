@@ -1,0 +1,41 @@
+body {
+   background-color: #ADD8E6;
+   margin: 0 10px 0 10px;  /* убираем отступы по умолчанию чтобы не использовать reset.css */
+   padding: 0;
+}
+
+.container{
+   display: flex;
+   flex-wrap: nowrap;
+   
+}
+
+.col{
+   display: flex;
+   flex-direction: column;
+   width: 1fr;
+   margin: 5px;
+}
+
+.card{
+   margin: 20px 10px;
+}
+
+img {
+   width: 100%;   /*занимает 100% ширины контейнера*/
+   height: auto;   /*высота подстраивается в зависимости от ширины */
+   object-fit: contain;   /*позволяет избежать искажений в показе изображения*/
+   margin: 0 0 -4px 0;
+}
+.text_wrap{
+   background-color: #F5F5F5;
+   margin: 0 0 0 0;
+   padding: 1px 0 1px 0;
+
+}
+h2{
+   font-weight:900;  /* не работает*/
+}
+p {
+   font-size: 20px;
+}
