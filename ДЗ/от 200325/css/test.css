@@ -1,0 +1,17 @@
+body {
+   margin: 0;
+   padding: 0;
+   display: flex;
+   flex-direction: column;
+   min-height: 100vh;
+}
+
+header, footer {
+   height: 40px; /* Скролл, прощай! */
+   background-color: aquamarine;
+}
+
+.main-content {
+   flex-grow: 1; /* Пусть div заполняет пространство! */
+   background-color: brown;
+}
