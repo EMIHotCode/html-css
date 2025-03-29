@@ -1,0 +1,13 @@
+
+Часть 2 задача 1
+// Given arrays
+let a1 = [10, 20, 30, 40];
+let a2 = [30, 40, 50, 70];
+
+// Crete set to eleminate the duplicates
+let s  = new Set([ ...a1, ...a2] );// Given arrays
+let a1 = [10, 20, 30, 40];
+let a2 = [30, 40, 50, 70];
+
+// Crete set to eleminate the duplicates
+let s  = new Set([ ...a1, ...a2] );
