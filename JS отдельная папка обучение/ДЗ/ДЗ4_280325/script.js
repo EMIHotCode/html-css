@@ -162,12 +162,9 @@ function complement(a, b) { // дополнение
       }
    });
    return res;
- }
+}
 
- printArray('Дополнение', complement(one, two));
-
-console.log('\n\n\nЧасть2 Задание 3');
-console.log('Функция принимает 2 массива и возвращает новый массив, в котором собраны все элементы из первого массива, которых нет во втором массиве, без повторений.');
+console.log('\n\n\nЧасть2 Задание 3. Функция принимает 2 массива и возвращает новый массив, в котором собраны все элементы из первого массива, которых нет во втором массиве, без повторений.');
 console.log(`[${one}], [${two}] ${printArray('Дополнение: ', complement(one, two))}`);
 arr1 = randomArray(8);
 arr2 = randomArray(6);
@@ -175,27 +172,42 @@ console.log(`[${arr1}], [${arr2}] ${printArray('Дополнение: ', complem
 
 
 console.log('\n\n\n/******************************* Работа со строками *************************************/');
-const loremStr = ['Lorem ipsum dolor sit amet aliquyam nonumy iriure.',
-   'Ex illum ea feugait ipsum sit takimata diam.',
-   'Voluptua sadipscing tempor iusto.',
-   'Dolores nonumy dolores ipsum ut sadipscing veniam et.'
+
+const loremStr = ['Экзамен для меня всегда праздник, профессор!',
+   'Головной убор, между прочим, так не носят.',
+   'Счастливые часов не наблюдают!',
+   'Чей туфля? О! Мое. Спасибо',
+   'Красота спасет мир.',
+   'Жили были три китайца',
+   'Жили были три китайки'
 ]
 
 //Задание 1. Написать функцию, которая принимает 2 строки и сравнивает их длину. Функция возвращает 1, если в первой строке больше символов, чем во второй; -1 –  если во второй больше символов, чем в первой; или 0 – если строки одинаковой длины.
 function strLength(s1, s2){
    if(s1.length > s2.length) return 1;
    if(s1.length < s2.length) return -1;
-   else return 0;
+   return 0;
 }
+console.log('\n\n\nЗадание 1. Написать функцию, которая принимает 2 строки и сравнивает их длину. Функция возвращает 1, если в первой строке больше символов, чем во второй; -1 –  если во второй больше символов, чем в первой; или 0 – если строки одинаковой длины.');
+console.log(`Строка 1 "${loremStr[2]}"\nСтрока 2 "${loremStr[4]}"\nРезультат: ${strLength(loremStr[2], loremStr[4])}`);
+console.log(`Строка 1 "${loremStr[5]}"\nСтрока 2 "${loremStr[6]}"\nРезультат: ${strLength(loremStr[5], loremStr[6])}`);
+console.log(`Строка 1 "${loremStr[4]}"\nСтрока 2 "${loremStr[6]}"\nРезультат: ${strLength(loremStr[4], loremStr[6])}`);
+
+
 
 // Написать функцию, которая переводит в верхний регистр первый символ переданной строки.
 function upperCase(str){
-   let newStr = str[0].toUpperCase() + str.slice(1);
+   const trimStr = str.trim();
+   let newStr = trimStr[0].toUpperCase() + trimStr.slice(1);
    return newStr;
 }
+console.log('\n\n\nЗадание 2. Написать функцию, которая переводит в верхний регистр первый символ переданной строки.');
+console.log(`Строка "hello world!" Результат: "${upperCase('hello world!')}"`);
+console.log(`Строка " привет мир!" Результат: "${upperCase(' привет мир!')}"`);
+
+
 
 //Написать функцию, которая считает количество гласных букв в переданной строке.
-
 function IsVowel(letter) {  // дополнительная функция проверяющая является ли буква гласной 
    let vowels = 'aeiouyаеёиоуыэюя';
    if (!vowels.includes(letter.toLowerCase())) return false;
@@ -212,21 +224,32 @@ function sumVowel(str){
    });
    return sum;
 }
-console.log(sumVowel('abcdeоу'));
+console.log('\n\n\nЗадание 3. Написать функцию, которая считает количество гласных букв в переданной строке.');
+console.log(`Строка "В предложении девять гласных." Результат: ${sumVowel('В предложении девять гласных')}`);
+console.log(`Строка "this String has six vowels." Результат: ${sumVowel('this String has six vowels.')}`);
+
+
 
 //Написать функцию для проверки спама в переданной строке. Функция возвращает true, если строка cодержит спам. Спамом считать следующие слова: 100% бесплатно, увеличение продаж, только сегодня, не удаляйте, xxx . Функция должна быть нечувствительна к регистру.
 function checkSpam (str){
    const 
       spam = ['100% бесплатно', 'увеличение продаж', 'только сегодня', 'не удаляйте', 'xxx'],
       strLower = str.toLowerCase();
-   let result = false;
-      spam.forEach((word) => {
-         if (strLower.includes(word)) 
-            result = true;
-      });
+   let result = spam.some(word => {
+      return strLower.includes(word); 
+   });
    return result;
 };
-console.log(`наличие спама в строке ${checkSpam('abcdeоу НЕ УДАЛЯЙТЕ')}`);
+
+// function checkSpam (str){
+//    const 
+//       spam = ['100% бесплатно', 'увеличение продаж', 'только сегодня', 'не удаляйте', 'xxx'],
+//    let result = spam.some(word => {
+//       return str.toLowerCase().includes(word); 
+//    });
+//    return result;
+// };
+console.log(`"Очень нужный файл НЕ УДАЛЯЙТЕ" наличие спама в строке: ${checkSpam('Очень нужный файл НЕ УДАЛЯЙТЕ')}`);
 
 
 // Написать функцию сокращения строки. Функция принимает строку и ее максимальную длину. Если длина строки больше,  чем  максимальная,  то  необходимо  отбросить лишние символы, добавив вместо них троеточие. Например: truncate("Hello world!!!", 8) должна вернуть "Hello..."
