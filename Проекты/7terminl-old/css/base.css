@@ -22,8 +22,7 @@ header{
 .row{
    display: flex;
    flex-direction: row;
-   align-items: center;   /*выравнивание по вертикали для заголовка h1*/
-   /* justify-content: left; */
+   align-items: center;  /* выравнивание по вертикали для заголовка h1*/
 }
 .col{
    display: block;
@@ -105,25 +104,21 @@ nav ul li a:hover{
 
 footer {
    display: flex;
-   align-items:flex-start;
-   /* align-self: center; */
-}
-footer ul li{
-   display: inline;
-   align-items: сenter;
+   align-items:center;
    font-family: "Montserrat", Arial, sans-serif;
-	font-weight: 400;
-   font-style: normal;
-   font-size: 16px;
-   line-height: 1.2;
    color: #eeeeee;
+   /* font-size: 16px; */
+   font-weight: 400;
+   font-style: normal;
+   line-height: 1.2;
+
 }
-
-
-
-
-
-
+a{
+   border-left: 1px solid #555555;
+   margin-left: 5px;
+   padding-left: 20px;
+   color: #70c9ef;
+}
 
 
 

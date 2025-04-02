@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      background-color: aqua;
+      min-height: 200px;
+      ;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="d1">div<br>
+    X = <span id="x">___</span>px<br>
+    Y = <span id="y">___</span>px<br>
+  </div>
+  <button id="b1" onclick="let a='n1';print(a);">button</button>
+  <hr>
+  <script>
+    'use strict';
+    const
+      div = document.getElementById('d1'),
+      button = document.querySelector('#b1'),
+      [spanX, spanY] = document.querySelectorAll('span#x,span#y');
+    function n4(event) {
+      const
+        { type, clientX, clientY } = event;
+      print('n4', JSON.stringify({ type, clientX, clientY }));
+      console.log({ event });
+    }
+    function clickListener(event) {
+      spanX.textContent = event.clientX;
+      spanY.textContent = event.clientY;
+    }
+    // div.textContent = `X=${x}px, Y=${y}px`
+
+    // button.onclick = function () { print('n2') } // так никогда не делаем!!!
+    button.addEventListener('click', () => print('n3'), { once: true });
+    button.addEventListener('click', n4);
+    // button.removeEventListener('click', n4);
+    div.addEventListener('click', clickListener);
+
+    function print(...text) {
+      document.body.append(...text, document.createElement('br'));
+    }
+
+
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Генератор случайных чисел</title>
+
+   <style>
+      body{
+         margin: 0;
+         padding: 0;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         min-height: 100vh;
+         font-family: Verdana, Arial, Helvetica, sans-serif; 
+      }
+      div {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+
+         width: 500px;
+         height: 200px;
+         background-color: #FBF2E9;
+         font-size: 120%;
+         padding: 0 30px;
+      }
+      button{
+         margin-bottom: auto;
+         margin-top: 30px;
+         font-size: 20px;
+      }
+      #rndNum{
+         font-size: 250%;
+      }
+     </style>
+</head>
+<body>
+
+   <div>
+      <button id="btn">hide/show text</button>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum fuga fugit esse iste repudiandae eveniet placeat similique cumque reiciendis. Odit, ipsam. Impedit blanditiis ullam modi, aut excepturi facilis debitis sed!</p>
+   </div>
+   <script>
+      'use strict';
+
+const button = document.querySelector('#btn'),
+      text = document.querySelector('p');
+let x = 0;
+
+const handleClick = (event) => {
+   if (x == 0) {
+            text.style = 'display:none;';
+            x = 1;
+        } else {
+            text.style = 'display:block;';
+            x = 0;
+        }
+}
+button.addEventListener('click', handleClick)
+
+   </script>
+</body>
+</html>

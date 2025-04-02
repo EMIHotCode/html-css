@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Навигация по DOM-элементам</title>
+  <style>
+    p {border: 1px solid blue;}
+    .green {background-color: green; }
+  </style>
+</head>
+<body>
+  <!-- это просто комментарий -->
+  Текст до параграфа
+  <p id="p1">Содержимое параграфа</p>
+  Текст после параграфа
+  <script>
+    // текст скрипта                         
+    inspectNodes(document);
+    inspectElements(document.documentElement); // HTML элемент
+    console.log(inspectElementParentsChain(document.body.firstElementChild));
+    console.log(inspectNodesParentsChain(document.body.firstChild));
+
+    function inspectNodes(node, spaceShift = 0) {
+      console.log(' '.repeat(spaceShift), 'Узел:', node.nodeName, ' nodeType=', node.nodeType, getSmartNodeText(node))
+      let nodeChildren = node.childNodes; // Главное!!! - демонстрируем именно обход по childNodes
+      if (nodeChildren.length)
+        for (let child of nodeChildren)
+          inspectNodes(child, spaceShift + 2);
+    }
+
+    function inspectElements(elem, spaceShift = 0) {
+      console.log(' '.repeat(spaceShift), 'Элемент:', elem.tagName);
+      let elemChildren = elem.children; // Главное!!! - демонстрируем именно обход по children
+      if (elemChildren.length)
+        for (let child of elemChildren)
+          inspectElements(child, spaceShift + 2);
+    }
+
+    function inspectElementParentsChain(elem) {
+      let parent = elem.parentElement;
+      return elem.tagName + (parent ? ' --> ' + inspectElementParentsChain(parent) : '');
+    }
+
+    function inspectNodesParentsChain(node) {
+      let parent = node.parentNode;
+      return node.nodeName + (parent ? ' --> ' + inspectNodesParentsChain(parent) : '');
+    }
+
+    function getSmartNodeText(node) {
+      if (![3,8].includes(node.nodeType)) return '';
+      let s = node.textContent?.trim();
+      if (!s) return '';
+      if (s && s.length > 30)
+        s = s.slice(0, 30) + '...';
+      return `"${s}"`;
+    }
+
+  </script>
+</body>
+</html>

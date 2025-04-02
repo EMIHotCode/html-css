@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Шкала прогресса Progress bar</title>
+
+   <style>
+      body{
+         margin: 0;
+         padding: 0;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         min-height: 100vh;
+         font-family: Verdana, Arial, Helvetica, sans-serif; 
+      }
+      .wrap {
+         display: flex;
+         width: 600px;
+         height: 200px;
+         background-color: #FBF2E9;
+         font-size: 120%;
+         padding: 20px;
+      }
+      .tabs{
+         display: flex;
+         flex-direction: column;
+         background-color: #597BA0;
+         height: 100%;
+         border: 2px solid #597BA0;
+
+      }
+      button{
+         display: flex;
+         background-color: #597BA0;        
+         border: none;
+         font-weight: bold;
+         color: white;
+         padding: 10px;
+         margin-top: 10px;
+         width: 70px;
+      }
+      button:hover{
+       background-color: #37618d;        
+      }
+      .tabcontent{
+         flex-grow: 1;
+         height: 100%;
+         border-top: 2px solid #597BA0;
+         border-bottom: 2px solid #597BA0;
+         border-right: 2px solid #597BA0;
+      }
+
+     </style>
+</head>
+<body>
+
+   <div class = "wrap">
+      <div class="tabs">
+         <button class="tablinks tab--active">HTML</button>
+         <button class="tablinks">CSS</button>
+         <button class="tablinks">JS</button>
+      </div>      
+      
+      <div id="HTML" class="tabcontent">
+         <>HTML (от англ. HyperText Markup Language) — это язык гипертекстовой разметки. Его используют для создания и структурирования веб-страниц. HTML помогает определять, как содержимое страницы должно отображаться в браузерах. С его помощью можно структурировать и форматировать текст на сайте, добавлять картинки, таблицы, списки. </p>
+      </div>
+       
+      <div id="CSS" class="tabcontent">
+         <p>CSS (англ. Cascading Style Sheets «каскадные таблицы стилей») — формальный язык декорирования и описания внешнего вида документа (веб-страницы), написанного с использованием языка разметки (чаще всего HTML или XHTML)</p> 
+      </div>
+       
+      <div id="JS" class="tabcontent">
+         <p>JavaScript (JS) — это высокоуровневый, интерпретируемый, мультипарадигменный язык программирования. Он используется в основном для создания интерактивных веб-страниц. JS поддерживают все популярные браузеры.</p>
+      </div>
+
+   </div>
+
+   <script>
+
+'use strict';
+
+const tabs = document.querySelectorAll(".tablinks"),
+      contents = document.querySelectorAll(".content");
+
+      // запускаем цикл для каждой вкладки и добавляем на неё событие
+for (let i = 0; i < tabs.length; i++) {
+	tabs[i].addEventListener("click", ( event ) => {
+ 
+		// сначала нам нужно удалить активный класс именно с вкладок
+		let tabsChildren = event.target.parentElement.children;
+		for (let t = 0; t < tabsChildren.length; t++) {
+			tabsChildren[t].classList.remove("tab--active");
+		}
+		// добавляем активный класс
+		tabs[i].classList.add("tab--active");
+		// теперь нужно удалить активный класс с блоков содержимого вкладок
+		let tabContentChildren = event.target.parentElement.nextElementSibling.children;
+		for (let c = 0; c < tabContentChildren.length; c++) {
+			tabContentChildren[c].classList.remove("content--active");
+		}
+		// добавляем активный класс
+		contents[i].classList.add("content--active");
+ 
+	});
+}
+   </script>
+</body>
+</html>

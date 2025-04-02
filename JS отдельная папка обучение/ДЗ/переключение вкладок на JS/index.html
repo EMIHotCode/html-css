@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Переключение вкладок</title>
+
+   <style>
+*,
+::before,
+::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    font-family: Arial, Geometria, sans-serif;
+    background-color: #2c7580;
+}
+
+body {
+    padding: 10px 30px;
+    font-size: 30px;
+    user-select: none;
+}
+
+h1 {
+    font-size: 25px;
+    padding: 20px 0;
+    text-shadow: 0 0 4px silver;
+}
+
+li {
+    list-style-type: none;
+}
+
+.wrapper {
+    width: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 0;
+    padding: 5px;
+    border: 5px groove gray;
+    text-align: center;
+}
+
+/* tabs */
+.tab-list {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.tab-item {
+    flex-grow: 1;
+    width: 50px;
+    padding: 5px;
+    background: gray;
+    transition: width 0.5s;
+}
+
+/* content */
+.content-list {
+    width: 100%;
+    border: 2px solid black;
+}
+
+.content-item {
+    display: none;
+    height: 200px;
+    line-height: 200px;
+    background: gray;
+}
+
+.tab-item.is-active {
+    width: 80px;
+    background: aqua;
+}
+
+.content-item.is-active {
+    display: block;
+}
+
+.link {
+    display: block;
+    color: blue;
+    margin-bottom: 5px;
+}
+     </style>
+</head>
+<body>
+
+<h1>Переключение вкладок на JavaScript</h1>
+<a class="link" href="https://youtu.be/btkXG8NiCyU" target="blank">YOUTUBE VIDEO</a>
+
+<div class="wrapper">
+	<ul class="tab-list">
+		<li class="tab-item is-active">1</li>
+		<li class="tab-item">2</li>
+		<li class="tab-item">3</li>
+		<li class="tab-item">4</li>
+		<li class="tab-item">5</li>
+	</ul>
+
+	<ul class="content-list">
+		<li class="content-item is-active">Content 1</li>
+		<li class="content-item">Content 2</li>
+		<li class="content-item">Content 3</li>
+		<li class="content-item">Content 4</li>
+		<li class="content-item">Content 5</li>
+	</ul>
+</div>
+   <script>
+      'use strict';
+
+/*
+LOOK VIDEO: https://youtu.be/btkXG8NiCyU
+
+1 способ
+Алгоритм:
+    1 Устанавливаем active классы вручную на кнопку и на блок-контента
+    2 Скрываем в CSS все блоки контента, кроме активного
+    3 в JS обрабатываем клик по кнопкам
+    4 При клике:
+        - проверяем содержание active класса, что бы избежать лишних вызовов ф-ций
+        - очищаем циклом все active - классы у кнопок и у блок-контента
+            для этого напишем функцию очистки классов
+        - устанавливаем новый активный класс
+            для этого напишем функцию установки активного класса
+*/
+
+const tabItems = Array.from(document.querySelectorAll('.tab-item'))
+const contentItems = Array.from(document.querySelectorAll('.content-item'))
+
+const clearActiveClass = (element, className = 'is-active') => {
+  element.find(item => item.classList.remove(`${ className }`))
+}
+
+const setActiveClass = (element, index, className = 'is-active') => {
+  element[index].classList.add(`${ className }`)
+}
+
+const checkoutTabs = (item, index) => {
+  item.addEventListener('click', () => {
+    
+    if (item.classList.contains('is-active')) return
+    console.log(item)
+  
+    clearActiveClass(tabItems)
+    clearActiveClass(contentItems)
+    
+    setActiveClass(tabItems, index)
+    setActiveClass(contentItems, index)
+  })
+}
+
+tabItems.forEach(checkoutTabs)
+   </script>
+</body>
+</html>
