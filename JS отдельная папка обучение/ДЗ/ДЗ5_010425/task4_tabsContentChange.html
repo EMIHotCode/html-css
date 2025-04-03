@@ -15,15 +15,14 @@
          min-height: 100vh;
          font-family: Verdana, Arial, Helvetica, sans-serif; 
       }
-      .wrap {
+      .tabs {
          display: flex;
          width: 600px;
-         height: 200px;
+         height: 250px;
          background-color: #FBF2E9;
-         font-size: 120%;
          padding: 20px;
       }
-      .tabs{
+      .tabs__nav{
          display: flex;
          flex-direction: column;
          background-color: #597BA0;
@@ -31,7 +30,8 @@
          border: 2px solid #597BA0;
 
       }
-      button{
+      .tabs__button{
+         cursor: pointer;
          display: flex;
          background-color: #597BA0;        
          border: none;
@@ -41,70 +41,92 @@
          margin-top: 10px;
          width: 70px;
       }
+      .tabs__button._active {
+         background-color: #37618d;
+      }
       button:hover{
        background-color: #37618d;        
       }
-      .tabcontent{
+      .tabs__content{
          flex-grow: 1;
          height: 100%;
+         font-size: 14px;
+         margin: 0 0 0 0;
          border-top: 2px solid #597BA0;
          border-bottom: 2px solid #597BA0;
          border-right: 2px solid #597BA0;
+      }
+      .tabs__item{
+         margin: 20px;
+      }
+      /* скрываем вкладки с контентом у которых нет класса _active */
+      .tabs__item:not(._active) {
+      display: none;
       }
 
      </style>
 </head>
 <body>
-
-   <div class = "wrap">
-      <div class="tabs">
-         <button class="tablinks tab--active">HTML</button>
-         <button class="tablinks">CSS</button>
-         <button class="tablinks">JS</button>
+<!-- решение взято с сайта https://html-css.blog/js/kak-sozdat-vkladki-na-javascript/ -->
+   <div class = "tabs">
+      <div class="tabs__nav">
+         <button class="tabs__button" data-tab="tab_1">HTML</button>
+         <button class="tabs__button" data-tab="tab_2">CSS</button>
+         <button class="tabs__button" data-tab="tab_3">JS</button>
       </div>      
       
-      <div id="HTML" class="tabcontent">
-         <>HTML (от англ. HyperText Markup Language) — это язык гипертекстовой разметки. Его используют для создания и структурирования веб-страниц. HTML помогает определять, как содержимое страницы должно отображаться в браузерах. С его помощью можно структурировать и форматировать текст на сайте, добавлять картинки, таблицы, списки. </p>
+      <div class="tabs__content">
+         <div class="tabs__item" id="tab_1">
+            <p>HTML (от англ. HyperText Markup Language) — это язык гипертекстовой разметки. Его используют для создания и структурирования веб-страниц. HTML помогает определять, как содержимое страницы должно отображаться в браузерах. С его помощью можно структурировать и форматировать текст на сайте, добавлять картинки, таблицы, списки. </p>
+         </div>
+         
+         <div class="tabs__item" id="tab_2">
+            <p>CSS (англ. Cascading Style Sheets «каскадные таблицы стилей») — формальный язык декорирования и описания внешнего вида документа (веб-страницы), написанного с использованием языка разметки (чаще всего HTML или XHTML)</p> 
+         </div>
+         
+         <div class="tabs__item" id="tab_3">
+            <p>JavaScript (JS) — это высокоуровневый, интерпретируемый, мультипарадигменный язык программирования. Он используется в основном для создания интерактивных веб-страниц. JS поддерживают все популярные браузеры.</p>
+         </div>
       </div>
-       
-      <div id="CSS" class="tabcontent">
-         <p>CSS (англ. Cascading Style Sheets «каскадные таблицы стилей») — формальный язык декорирования и описания внешнего вида документа (веб-страницы), написанного с использованием языка разметки (чаще всего HTML или XHTML)</p> 
-      </div>
-       
-      <div id="JS" class="tabcontent">
-         <p>JavaScript (JS) — это высокоуровневый, интерпретируемый, мультипарадигменный язык программирования. Он используется в основном для создания интерактивных веб-страниц. JS поддерживают все популярные браузеры.</p>
-      </div>
-
    </div>
 
    <script>
-
+//Если необходимо чтобы первая вкладка была сразу активна, то просто добавьте в разметке класс _active необходимой кнопке и вкладке.
 'use strict';
+// получаем все кнопки навигации
+const tabsButtons = document.querySelectorAll('.tabs__button');
 
-const tabs = document.querySelectorAll(".tablinks"),
-      contents = document.querySelectorAll(".content");
-
-      // запускаем цикл для каждой вкладки и добавляем на неё событие
-for (let i = 0; i < tabs.length; i++) {
-	tabs[i].addEventListener("click", ( event ) => {
- 
-		// сначала нам нужно удалить активный класс именно с вкладок
-		let tabsChildren = event.target.parentElement.children;
-		for (let t = 0; t < tabsChildren.length; t++) {
-			tabsChildren[t].classList.remove("tab--active");
-		}
-		// добавляем активный класс
-		tabs[i].classList.add("tab--active");
-		// теперь нужно удалить активный класс с блоков содержимого вкладок
-		let tabContentChildren = event.target.parentElement.nextElementSibling.children;
-		for (let c = 0; c < tabContentChildren.length; c++) {
-			tabContentChildren[c].classList.remove("content--active");
-		}
-		// добавляем активный класс
-		contents[i].classList.add("content--active");
- 
-	});
-}
+// Проходимся по всем кнопкам
+tabsButtons.forEach(btn => {
+  // вешаем на каждую кнопку обработчик события клик
+  btn.addEventListener('click', () => {
+    // Получаем предыдущую активную кнопку
+    const prevActiveItem = document.querySelector('.tabs__item._active');
+    // Получаем предыдущую активную вкладку
+    const prevActiveButton = document.querySelector('.tabs__button._active');
+    
+    // Проверяем есть или нет предыдущая активная кнопка
+    if (prevActiveButton) {
+      //Удаляем класс _active у предыдущей кнопки если она есть
+      prevActiveButton.classList.remove('_active');
+    }
+    
+    // Проверяем есть или нет предыдущая активная вкладка
+    if (prevActiveItem) {
+      // Удаляем класс _active у предыдущей вкладки если она есть
+      prevActiveItem.classList.remove('_active');
+    }
+    // получаем id новой активной вкладки, который мы перем из атрибута data-tab у кнопки
+    const nextActiveItemId = `#${btn.getAttribute('data-tab')}`;
+    // получаем новую активную вкладку по id
+    const nextActiveItem = document.querySelector(nextActiveItemId);
+    
+    // добавляем класс _active кнопке на которую нажали
+    btn.classList.add('_active');
+    // добавляем класс _active новой выбранной вкладке
+    nextActiveItem.classList.add('_active');
+  });
+})
    </script>
 </body>
 </html>

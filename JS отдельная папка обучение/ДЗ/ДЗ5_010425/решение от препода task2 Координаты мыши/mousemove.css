@@ -1,0 +1,24 @@
+body { margin: 0; }
+
+#yellow {
+  font: clamp(10px, 8vmin, 32px) monospace;
+  background-color: yellow;
+  width: 100vw; height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+@keyframes dissolve { to { opacity: 0%;} }
+
+.button-name {
+  animation: dissolve 500ms 300ms linear forwards; /* линейно за 500ms задержка 300ms и останется прозрачным */
+}
+
+/* .red {
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  position: absolute;
+} */

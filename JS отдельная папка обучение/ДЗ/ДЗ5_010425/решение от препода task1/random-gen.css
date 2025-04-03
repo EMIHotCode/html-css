@@ -1,0 +1,19 @@
+main {
+  display: flex;
+  flex-flow: wrap;
+  gap:10px;
+}
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+div { 
+  border: 1px solid black;
+  padding: 1em 3em;
+}
+button {font-size: inherit;}
+.big {font-size: 1.3rem;}
+.small {font-size:0.8rem;}
+
