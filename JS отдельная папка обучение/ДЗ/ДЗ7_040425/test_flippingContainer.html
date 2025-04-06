@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Переворачивающийся на 180 контейнер</title>
+
+<style>
+body{
+   margin: 0;
+   padding: 0;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   min-height: 100vh;
+   font-family: Verdana, Arial, Helvetica, sans-serif;
+   background-color: #2c7580; 
+}
+   /* весь контейнер поддерживает перспективу */
+.flip-container {
+	perspective: 1000;
+}
+	/* переверните сторону при проведении мышью */
+.flip-container:hover .flipper, .flip-container.hover .flipper {
+   transform: rotateY(180deg);
+}
+ 
+.flip-container, .front, .back {
+   width: 800px;
+   height: 250px;
+   background-color: #344955;
+   border-radius: 5px;
+   color: #f9aa33;
+   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+.flip-container, .front{
+   text-align: center;
+}
+.back {
+   text-align: left;
+}
+/* здесь находится скорость перевертывания */
+.flipper {
+	transition: 0.6s;
+	transform-style: preserve-3d;
+ 
+	position: relative;
+}
+ 
+/* скройте обратную сторону во время переворота */
+.front, .back {
+	backface-visibility: hidden;
+ 
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+ 
+/* лицевая сторона размещена над обратной */
+.front {
+	z-index: 2;
+}
+ 
+/* обратная, изначально скрытая сторона */
+.back {
+	transform: rotateY(180deg);
+}
+
+</style>
+</head>
+<body>
+   <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+      <div class="flipper">
+         <div class="front">
+            <!-- front content -->
+            <h3>Заголовок</h3>
+         </div>
+         <div class="back">
+            <!-- back content -->
+            <ol>
+               <li>
+                 "Изучаем программирование на JavaScript" by Э. Фримен, Э. Робсон
+               </li>
+               <li>
+                 "Самоучитель по JavaScript для детей" by КН. Морган
+               </li>
+               <li>"Как устроен JavaScript" by Д. Крокфорд</li>
+               <li>
+                 "Изучаем JavaScript. Руководство по созданию современных веб-сайтов" by Э. Браун
+               </li>
+               <li>
+                 "Javascript и jQuery. Интерактивная веб-разработка" by Д. Дакетт
+               </li>
+               <li>"Секреты JavaScript ниндзя" by Резиг, Бибо, Марас</li>
+               <li>"Выразительный JavaScript. Современное веб-программирование" by М. Хавербеке</li>
+             </ol>
+         </div>
+      </div>
+   </div>
+
+
+
+<script>
+
+</script>
+</body>
+</html>

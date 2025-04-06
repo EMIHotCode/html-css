@@ -1,0 +1,63 @@
+<html>
+	<head>
+		<title>Создание вкладок на JavaScript</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div class="container">
+			<ul class="container--tabs">
+				<li class="tab tab--active">London</li>
+				<li class="tab">New York</li>
+				<li class="tab">Singapore</li>
+			</ul>
+
+			<div class="container--content">
+				<div class="content content--active">
+					<h2>London</h2>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur doloribus necessitatibus possimus.</p>
+					<p><img src="london.jpg" width="396" /></p>
+				</div>
+				<div class="content">
+					<h2>NYC</h2>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur doloribus necessitatibus possimus.</p>
+					<p><img src="nyc.jpg" width="396" /></p>
+				</div>
+				<div class="content">
+					<h2>Singapore</h2>
+					<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam esse voluptas minus autem, veniam dolor, debitis consequuntur dignissimos libero quibusdam consequatur. Enim, pariatur deserunt. Officiis!</p>
+					<p><img src="sg.jpg" width="396" /></p>
+				</div>
+			</div>
+		</div>
+
+		<script>
+// получаем массив всех вкладок
+const tabs = document.querySelectorAll(".tab");
+// получаем массив всех блоков с содержимым вкладок
+const contents = document.querySelectorAll(".content");
+
+// запускаем цикл для каждой вкладки и добавляем на неё событие
+for (let i = 0; i < tabs.length; i++) {
+	tabs[i].addEventListener("click", ( event ) => {
+
+		// сначала нам нужно удалить активный класс именно с вкладок
+		let tabsChildren = event.target.parentElement.children;
+		for (let t = 0; t < tabsChildren.length; t++) {
+			tabsChildren[t].classList.remove("tab--active");
+		}
+		// добавляем активный класс
+		tabs[i].classList.add("tab--active");
+		// теперь нужно удалить активный класс с блоков содержимого вкладок
+		let tabContentChildren = event.target.parentElement.nextElementSibling.children;
+		for (let c = 0; c < tabContentChildren.length; c++) {
+			tabContentChildren[c].classList.remove("content--active");
+		}
+		// добавляем активный класс
+		contents[i].classList.add("content--active");
+
+	});
+}
+
+			</script>
+	</body>
+</html>

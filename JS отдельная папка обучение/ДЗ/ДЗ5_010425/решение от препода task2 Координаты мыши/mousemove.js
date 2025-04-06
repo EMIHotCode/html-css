@@ -21,6 +21,7 @@ function clickListener(event) {
   let
     text = ['левая кнопка', 'колесико', 'правая кнопка'][event.button]; // [event.which] устарело 
 
+    console.log(event);
   switch (event.type) {
     case 'contextmenu':
       event.preventDefault(); // контекстное меню не показывается 

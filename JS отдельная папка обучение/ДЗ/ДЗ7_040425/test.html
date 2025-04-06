@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Демонстрация работы - Element.classList — Дока</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <style>
+    .base {
+      margin: 50px;
+      padding: 20px;
+      font-size: 32px;
+      display: inline-block;
+      transition: opacity 0.5s;
+      opacity: 1;
+    }
+
+    .controls {
+      padding: 0 50px;
+    }
+
+    .control {
+      margin-bottom: 10px;
+    }
+
+    .text-black {
+      color: black;
+    }
+
+    .text-red {
+      color: red
+    }
+
+    .border-blue {
+      border: 2px solid blue;
+    }
+
+    .bg-yellow {
+      background: yellow;
+    }
+
+    .button {
+      padding: 6px;
+      font-size: 16px;
+      background: #71d8ea;
+      border-radius: 4px;
+    }
+
+    .reset {
+      background: transparent
+    }
+
+    .fade {
+      opacity: 0;
+    }
+  </style>
+
+
+<script>
+  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+  m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+  (window, document, "script", "https://cdn.jsdelivr.net/npm/yandex-metrica-watch/tag.js", "ym")
+
+  ym(83244811, "init", {
+    clickmap:true,
+    trackLinks:true,
+    accurateTrackBounce:true
+  })
+</script>
+<noscript><img src="https://mc.yandex.ru/watch/83244811" style="position:absolute;left:-9999px" alt=""></noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GH8FX28ET0"></script>
+<script>
+  window.dataLayer = window.dataLayer || []
+  function gtag(){dataLayer.push(arguments)}
+  gtag("js", new Date())
+  gtag("config", "G-GH8FX28ET0")
+</script>
+</head>
+<body>
+<div id="target" class="base text-black">
+  Смотри, мама, я дизайнер!
+</div>
+
+<div class="controls">
+  <div class="control">
+    <button id="add" class="button">Добавить оформление</button>
+  </div>
+  <div class="control">
+    <button id="remove" class="button">Убрать оформление</button>
+  </div>
+  <div class="control">
+    <button id="toggle" class="button">Красиво исчезнуть</button>
+  </div>
+  <div class="control">
+    <button id="reset" class="button reset">Верни как было!</button>
+  </div>
+</div>
+  <script>
+    const INITIAL_CLASSES =  ['border-blue', 'text-red', 'bg-yellow']
+    let availableClasses = INITIAL_CLASSES.slice()
+    let added = []
+    const target = document.getElementById('target')
+
+    const addButton = document.getElementById('add')
+
+    function handleAddClass() {
+      if (availableClasses.length) {
+        const nextClass = availableClasses.shift()
+        target.classList.add(nextClass)
+        added.push(nextClass)
+      }
+    }
+
+    addButton.addEventListener('click', handleAddClass)
+
+    const removeButton = document.getElementById('remove')
+
+    function handleRemoveClass() {
+      if (added.length) {
+        const nextClass = added.pop()
+        target.classList.remove(nextClass)
+        availableClasses.unshift(nextClass)
+      }
+    }
+
+    removeButton.addEventListener('click', handleRemoveClass)
+
+    const toggleButton = document.getElementById('toggle')
+    let visible = true;
+
+    function handleToggleClick() {
+      target.classList.toggle('fade')
+
+      visible = !visible
+
+      toggleButton.textContent = visible ? 'Красиво исчезнуть' : 'Красиво появиться'
+    }
+
+    toggleButton.addEventListener('click', handleToggleClick)
+
+    const resetButton = document.getElementById('reset');
+
+    function handleResetClick() {
+      added = []
+      availableClasses = [...INITIAL_CLASSES]
+      target.classList.remove(...INITIAL_CLASSES)
+      console.log('kekeke')
+
+      if(!visible) {
+        handleToggleClick()
+      }
+    }
+
+    resetButton.addEventListener('click', handleResetClick)
+  </script>
+</body>
+</html>
