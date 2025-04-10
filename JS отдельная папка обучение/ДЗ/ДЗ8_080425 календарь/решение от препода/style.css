@@ -1,0 +1,17 @@
+body {
+  display: grid;
+  justify-content: center;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+.calendar td {
+  text-align: center;
+  border: 1px solid lightgray;
+}
+
+.calendar td:nth-child(n+6) {
+  color: red
+}

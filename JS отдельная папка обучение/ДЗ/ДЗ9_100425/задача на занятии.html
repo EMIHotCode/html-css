@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <title>Document</title>
+  <style>
+    .hidden {
+      display: none;
+    }
+
+    li :checked+span {
+      text-decoration: line-through;
+      color: gray;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>ToDo List</h1>
+  <input placeholder="новое дело">
+  <button id="add">➕</button>
+  <hr>
+  <button id="del">del completed</button>
+  <label for="">filter:
+    <select>
+      <option value="all">all</option>
+      <option value="c">completed</option>
+      <option value="nc">not completed</option>
+    </select>
+  </label>
+  <ol></ol>
+  <script>
+    'use strict';
+    const
+      list = $('ol'),
+      input = $('input');
+
+    $('#add').click(event =>
+      $('<span>')
+        .text(input.val())
+        .wrap('<li>')
+        .parent()
+        .prepend($('<input>', { type: 'checkbox' }))
+        .append($('<button>').text('✖').click(event => event.target.closest('li').remove()))
+        .appendTo(list)
+    );
+
+    $('#del').click(event => $('li:has(:checked)').remove());
+
+    $('select').on('change', event => {
+      $('.hidden').removeClass('hidden');
+      switch ($('select :checked').val()) {
+        case 'c':
+          $('ol li:not(:has(:checked))').addClass('hidden');
+          return;
+        case 'nc':
+          $('ol li:has(:checked)').addClass('hidden');
+      }
+
+    });        
+  </script>
+</body>
+
+</html>

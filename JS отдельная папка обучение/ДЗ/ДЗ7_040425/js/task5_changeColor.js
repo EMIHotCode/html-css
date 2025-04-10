@@ -19,6 +19,7 @@ document
       'click', 
       function (event) {
             const li = event.target.closest('li');
+            if(!li) return;
             higlight(li);
 });   
 
