@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Функции Callback</title>
+  <style>
+      .out-1, .out-2{
+         border-top: 1px solid gray;
+         border-bottom: 1px solid gray;
+         min-height: 40px;
+      }
+  </style>
+</head>
+
+<body>
+  <h1>Функции Callback</h1>
+  <div class="out-1"></div>
+  <div class="out-2"></div>
+
+  <script>
+    'use strict';
+    
+    function myFunc(callback){
+      const a = [4, 5, 6];
+      let element = document.querySelector('.out-1');
+      callback(element, a)
+   }
+
+   function out (elem, arr){
+      elem.innerHTML = arr.join(' ');
+   }
+   
+   function out2 (elem, arr){
+      elem.innerHTML = arr.join('-');
+   }
+
+   myFunc(out);
+   myFunc(out2);
+
+   // без callback трудно читать и поддерживать расширять 
+   // fetch('https://cat-fact.herokuapp.com/facts')
+   //    .then((response) => {
+   //       return response.json();
+   //    })
+   //    .then((data) => {
+   //       data.forEach(item => console.log(item.text));
+   //    });
+
+   function getCats(callback2){
+      fetch('https://cat-fact.herokuapp.com/facts',{
+         mode: 'no-cors',
+         method: "get",
+         headers: {
+               "Content-Type": "application/json"
+         }
+      })
+      .then((response) => {
+         return response.json();
+      })
+      .then((data) => {
+         callback2(data);
+      });
+   }
+
+   function showCats(data){
+      data.forEach(item => console.log(item.text));
+      
+   }
+
+   getCats(showCats);
+  </script>
+</body>
+
+</html>
