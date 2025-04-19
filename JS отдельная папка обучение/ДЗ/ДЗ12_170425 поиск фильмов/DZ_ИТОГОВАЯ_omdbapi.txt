@@ -1,0 +1,56 @@
+﻿Реализовать веб-страницу для поиска фильмов используя сервис omdbapi.com.
+
+Дополнительно можно реализовать:
+* демонстрацию более подробной информации по отдельному фильму в модальном окне
+* "бесконечную ленту" фильмов
+
+примеры http-запросов:
+  * для поиска фильмов по строке https://www.omdbapi.com/?apikey=a2b07930&s=red
+  * для подробной информации о фильме https://www.omdbapi.com/?apikey=a2b07930&i=tt1245526
+  * пагинация https://www.omdbapi.com/?apikey=a2b07930&s=red&page=2
+
+Реализовано
+-при нажатии ссылку названия фильма переход на сайт www.imdb.com
+- при нажатии на картинку фильма подробная информация в модальном окне
+
+
+{
+  "Title": "RED",
+  "Year": "2010",
+  "Rated": "PG-13",
+  "Released": "15 Oct 2010",
+  "Runtime": "111 min",
+  "Genre": "Action, Comedy, Crime",
+  "Director": "Robert Schwentke",
+  "Writer": "Jon Hoeber, Erich Hoeber, Warren Ellis",
+  "Actors": "Bruce Willis, Helen Mirren, Morgan Freeman",
+  "Plot": "When his peaceful life is threatened by a high-tech assassin, former black-ops agent Frank Moses reassembles his old team in a last-ditch effort to survive and uncover the assailants.",
+  "Language": "English, Russian",
+  "Country": "United States",
+  "Awards": "4 wins & 19 nominations total",
+  "Poster": "https://m.media-amazon.com/images/M/MV5BMzg2Mjg1OTk0NF5BMl5BanBnXkFtZTcwMjQ4MTA3Mw@@._V1_SX300.jpg",
+  "Ratings": [
+    {
+      "Source": "Internet Movie Database",
+      "Value": "7.0/10"
+    },
+    {
+      "Source": "Rotten Tomatoes",
+      "Value": "72%"
+    },
+    {
+      "Source": "Metacritic",
+      "Value": "60/100"
+    }
+  ],
+  "Metascore": "60",
+  "imdbRating": "7.0",
+  "imdbVotes": "329,993",
+  "imdbID": "tt1245526",
+  "Type": "movie",
+  "DVD": "N/A",
+  "BoxOffice": "$90,380,162",
+  "Production": "N/A",
+  "Website": "N/A",
+  "Response": "True"
+}

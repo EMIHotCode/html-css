@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Пользователи</title>
+   <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+   <div class="container">
+      <h1>Список пользователей</h1>
+      <table id="usersTable">
+         <thead>
+               <tr>
+                  <th>ID</th>
+                  <th>Имя</th>
+                  <th>E-mail</th>
+                  <th>Город</th>
+                  <th>Телефон</th>
+                  <th>Сайт</th>
+                  <th>Компания</th>
+               </tr>
+         </thead>
+         <tbody id="user-list">
+               <!-- Данные пользователей будут добавлены здесь -->
+         </tbody>
+      </table>
+   </div>
+
+<template id="user-template">
+   <tr>
+      <td class="id"></td>
+      <td class="name"></td>
+      <td class="email"></td>
+      <td class="address"></td>
+      <td class="phone"></td>
+      <td class="website"></td>
+      <td class="company"></td>
+   </tr>
+</template>
+
+
+<script src="script.js"></script>
+</body>
+</html>

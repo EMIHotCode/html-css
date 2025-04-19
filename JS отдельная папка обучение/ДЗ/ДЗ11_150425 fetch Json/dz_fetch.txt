@@ -1,0 +1,5 @@
+Запросить всех пользователей с https://jsonplaceholder.typicode.com/,
+и отобразить их на странице в виде таблицы.
+Таблица должна как минимум содержать столбцы id, name, email, city, phone, website, company.name.
+(Можно добавить красивый CSS :) )
+
